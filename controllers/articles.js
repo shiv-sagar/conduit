@@ -73,7 +73,6 @@ exports.get = async (req, res, next) => {
     let article = await Article.findOne({ slug: req.params.slug })
       .populate({ path: "author", select: "username bio" })
       .exec();
-    const fromattedArticle = article.formatting([article]);
     res.json({ article });
   } catch (error) {
     next(error);
