@@ -3,7 +3,7 @@ var User = require("../model/user");
 var Comment = require("../model/comment");
 var slug = require("slug");
 
-// list of all articles by diffrent queries
+// list of all articles
 exports.list = async (req, res, next) => {
   try {
     if (req.query.author) {
@@ -41,7 +41,7 @@ exports.list = async (req, res, next) => {
   }
 };
 
-// feed article by follwers
+// feed article
 exports.feed = async (req, res, next) => {
   try {
     let user = await User.findById(req.user.userId);
